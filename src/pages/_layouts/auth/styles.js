@@ -27,11 +27,18 @@ export const Content = styled.div`
       height: 32px;
     }
 
-    span {
+    strong {
       text-align: left;
       text-transform: uppercase;
       font-weight: bold;
       padding-bottom: 5px;
+    }
+
+    span {
+      color: #f64c75;
+      align-self: flex-start;
+      margin: 0 0 10px;
+      font-weight: bold;
     }
 
     input {
