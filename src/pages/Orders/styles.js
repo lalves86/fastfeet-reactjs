@@ -41,6 +41,7 @@ export const SearchBar = styled.div`
 
 export const AddButton = styled.button`
   width: 12%;
+  min-width: 120px;
   height: 30px;
   background: #7159c1;
   font-weight: bold;

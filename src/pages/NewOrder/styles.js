@@ -16,6 +16,11 @@ export const Container = styled.div`
   a {
     color: #fff;
   }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const FormHeader = styled.div`
@@ -51,21 +56,18 @@ export const BackButton = styled.button`
 `;
 
 export const FormWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   background: #fff;
   margin-top: 20px;
 
-  form {
-    display: flex;
-    flex-direction: column;
-
-    input {
-      flex: 1;
-      background: #fafafa;
-      border: 1px solid rgb(169, 169, 169);
-      padding: 10px;
-      margin: 10px;
-      border-radius: 4px;
-    }
+  input {
+    flex: 1;
+    background: #fafafa;
+    border: 1px solid rgb(169, 169, 169);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 4px;
   }
 `;
 

@@ -14,6 +14,7 @@ import {
 
 export default function Orders() {
   const [orders, setOrders] = useState([]);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     async function loadOrders() {
@@ -25,13 +26,30 @@ export default function Orders() {
     loadOrders();
   }, []);
 
+  async function handleSearch(event) {
+    setSearch(event.target.value);
+
+    const response = await api.get('orders', {
+      params: {
+        q: event.target.value,
+      },
+    });
+
+    setOrders(response.data);
+  }
+
   return (
     <Container>
       <h1>Gestão de Encomendas</h1>
       <div>
         <SearchBar>
           <MdSearch color="#ccc" size={20} />
-          <input type="text" placeholder="Buscar por encomendas" />
+          <input
+            name="search"
+            onChange={handleSearch}
+            type="text"
+            placeholder="Buscar por encomendas"
+          />
         </SearchBar>
         <AddButton type="button">
           <Link to="/neworder">
@@ -42,6 +60,7 @@ export default function Orders() {
       </div>
       <TableHead>
         <strong>ID</strong>
+        <strong>Produto</strong>
         <strong>Destinatário</strong>
         <strong>Entregador</strong>
         <strong>Cidade</strong>
@@ -50,8 +69,9 @@ export default function Orders() {
         <strong>Ações</strong>
       </TableHead>
       {orders.map((order) => (
-        <TableBody>
+        <TableBody key={order.id}>
           <span>{order.id}</span>
+          <span>{order.product}</span>
           <span>{order.recipient.name}</span>
           <span>{order.deliverer.name}</span>
           <span>{order.recipient.city}</span>
