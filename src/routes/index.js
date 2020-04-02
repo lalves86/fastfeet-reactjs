@@ -13,7 +13,8 @@ export default function Routes() {
     <Switch>
       <Route path="/" exact component={SignIn} />
       <Route path="/orders" isPrivate component={Orders} />
-      <Route path="/neworder" isPrivate component={NewOrder} />
+      <Route path="/neworder" exact isPrivate component={NewOrder} />
+      <Route path="/neworder/:id" isPrivate component={NewOrder} />
       <Route path="/recipients" isPrivate component={Recipients} />
       <Route path="/deliverers" isPrivate component={Deliverers} />
       <Route path="/" component={() => <h1>404 - Not found!</h1>} />

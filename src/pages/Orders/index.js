@@ -51,6 +51,10 @@ export default function Orders() {
       status: changeStatus(order),
     }));
 
+    if(data.length < 10) {
+      setNextDisabled(true);
+    }
+
     setOrders(data);
   }
 

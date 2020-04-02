@@ -101,3 +101,41 @@ export const DeleteOrder = styled.button`
 export const ViewPopup = styled(Popup)`
   justify-content: center;
 `;
+
+export const ConfirmExclusion = styled.div`
+  flex-direction: column;
+  justify-content: center;
+
+  h4 {
+    font-size: 16px;
+    color: #fd1a1a;
+    padding-bottom: 5px;
+  }
+
+  h5 {
+    font-size: 16px;
+    padding-bottom: 5px;
+  }
+
+  p {
+    font-size: 14px;
+    padding-bottom: 5px;
+    font-weight: bold;
+  }
+
+  button {
+    width: 120px;
+    height: 40px;
+    background: #fd1a1a;
+    color: #fff;
+    font-weight: bold;
+    border: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background 0.2s;
+
+    &:hover {
+      background: ${darken(0.2, '#fd1a1a')};
+    }
+  }
+`;

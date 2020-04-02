@@ -28,6 +28,10 @@ export default function Orders() {
     });
 
     setDeliverers(response.data);
+
+    if (response.data.length < 10) {
+      setNextDisabled(true);
+    }
   }
 
   useEffect(() => {
