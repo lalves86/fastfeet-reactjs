@@ -1,37 +1,34 @@
 import React, { useState } from 'react';
-import { MdMoreHoriz, MdVisibility, MdEdit, MdDelete } from 'react-icons/md';
+import { MdMoreHoriz, MdEdit, MdDelete } from 'react-icons/md';
 import { toast } from 'react-toastify';
 import history from '~/services/history';
 import api from '~/services/api';
-
-import OrderPopup from '~/components/OrderPopup';
 
 import {
   Container,
   Badge,
   ActionList,
-  ViewDetails,
   UpdateOrder,
   DeleteOrder,
   ViewPopup,
   ConfirmExclusion,
-} from './styles';
+} from '~/components/Actions/styles';
 
 export default function Actions(props) {
   const [visible, setVisible] = useState(false);
   const [confirmDelete] = useState(false);
-  const [order] = useState(props.data);
+  const [recipient] = useState(props.data);
 
   function handleToggleVisible() {
     setVisible(!visible);
   }
 
   async function handleDelete() {
-    await api.delete(`/orders/${order.id}`);
+    await api.delete(`/recipients/${recipient.id}`);
 
     window.location.reload(confirmDelete);
 
-    toast.success('Pedido deletado');
+    toast.success('Destinatário excluído');
   }
 
   return (
@@ -42,18 +39,9 @@ export default function Actions(props) {
 
       {visible && (
         <ActionList>
-          <ViewPopup
-            modal
-            trigger={
-              <ViewDetails>
-                <MdVisibility color="#7159c1" size={20} />
-                <span>Visualizar</span>
-              </ViewDetails>
-            }
+          <UpdateOrder
+            onClick={() => history.push(`newrecipient/${recipient.id}`)}
           >
-            <OrderPopup data={order} />
-          </ViewPopup>
-          <UpdateOrder onClick={() => history.push(`neworder/${order.id}`)}>
             <MdEdit color="#3498db" size={20} />
             <span>Editar</span>
           </UpdateOrder>
@@ -68,7 +56,7 @@ export default function Actions(props) {
           >
             <ConfirmExclusion>
               <h4>ATENÇÃO!!!</h4>
-              <h5>Isto irá excluir a entrega permanentemente!</h5>
+              <h5>Isto irá excluir o destinatário permanentemente!</h5>
               <p>Confirmar exclusão?</p>
               <button type="button" onClick={handleDelete}>
                 Confirmar

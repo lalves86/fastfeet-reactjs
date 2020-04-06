@@ -7,6 +7,8 @@ import Orders from '~/pages/Orders';
 import NewOrder from '~/pages/NewOrder';
 import Recipients from '~/pages/Recipients';
 import Deliverers from '~/pages/Deliverers';
+import NewDeliverer from '~/pages/NewDeliverer';
+import NewRecipient from '~/pages/NewRecipient';
 
 export default function Routes() {
   return (
@@ -16,7 +18,11 @@ export default function Routes() {
       <Route path="/neworder" exact isPrivate component={NewOrder} />
       <Route path="/neworder/:id" isPrivate component={NewOrder} />
       <Route path="/recipients" isPrivate component={Recipients} />
+      <Route path="/newrecipient" exact isPrivate component={NewRecipient} />
+      <Route path="/newrecipient/:id" isPrivate component={NewRecipient} />
       <Route path="/deliverers" isPrivate component={Deliverers} />
+      <Route path="/newdeliverer" exact isPrivate component={NewDeliverer} />
+      <Route path="/newdeliverer/:id" isPrivate component={NewDeliverer} />
       <Route path="/" component={() => <h1>404 - Not found!</h1>} />
     </Switch>
   );

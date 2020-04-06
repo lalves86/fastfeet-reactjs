@@ -89,6 +89,8 @@ export default function NewOrder({ match }) {
       });
 
       toast.success('Pedido atualizado com sucesso');
+
+      history.replace('/orders');
     } catch (err) {
       toast.error(
         'Não foi possível atualizar o pedido! Verifique os dados e tente novamente!'

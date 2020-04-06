@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
-  margin: 30px;
+  margin: 30px auto;
+  width: 900px;
 
   h1 {
     font-size: 22px;
@@ -69,10 +70,9 @@ export const AddButton = styled.button`
 export const TableHead = styled.div`
   display: flex;
   justify-content: space-between;
-  max-width: 900px;
 
   strong {
-    width: 100%;
+    width: 112.5px;
     text-align: center;
   }
 `;
@@ -81,27 +81,23 @@ export const TableBody = styled.div`
   display: flex;
   justify-content: space-between;
   border-radius: 4px;
-  min-width: 700px;
-  max-width: 900px;
   background: #fff;
   margin-bottom: 15px;
+  z-index: 1;
 
   span {
     flex: 1;
-    max-width: 130px;
-    min-width: 100px;
+    width: 112.5px;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  img {
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    background: #eee;
+  .action {
+    flex: 1;
+    width: 112.5px;
+    padding: 0;
   }
 `;
 

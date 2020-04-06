@@ -115,6 +115,7 @@ export const ConfirmExclusion = styled.div`
   h5 {
     font-size: 16px;
     padding-bottom: 5px;
+    text-align: center;
   }
 
   p {

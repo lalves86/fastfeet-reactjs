@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { MdSearch, MdAdd, MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 import api from '~/services/api';
+import Actions from './Actions';
 
 import {
   Container,
@@ -13,7 +14,7 @@ import {
   Pagination,
 } from './styles';
 
-export default function Orders() {
+export default function Deliverers() {
   const [deliverers, setDeliverers] = useState([]);
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
@@ -80,7 +81,7 @@ export default function Orders() {
           />
         </SearchBar>
         <AddButton type="button">
-          <Link to="/neworder">
+          <Link to="/newdeliverer">
             <MdAdd color="#fff" size={20} />
             <strong>Cadastrar</strong>
           </Link>
@@ -96,10 +97,21 @@ export default function Orders() {
       {deliverers.map((deliverer) => (
         <TableBody key={deliverer.id}>
           <span>{deliverer.id}</span>
-          <span>{deliverer.avatar}</span>
+          <span>
+            <img
+              src={
+                deliverer.avatar
+                  ? deliverer.avatar.url
+                  : `https://api.adorable.io/avatars/120/${deliverer.name}.png`
+              }
+              alt="Avatar do usuário"
+            />
+          </span>
           <span>{deliverer.name}</span>
           <span>{deliverer.email}</span>
-          <span>...</span>
+          <div className="action">
+            <Actions data={deliverer} />
+          </div>
         </TableBody>
       ))}
       <Pagination>
