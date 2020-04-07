@@ -9,6 +9,7 @@ import Recipients from '~/pages/Recipients';
 import Deliverers from '~/pages/Deliverers';
 import NewDeliverer from '~/pages/NewDeliverer';
 import NewRecipient from '~/pages/NewRecipient';
+import Problems from '~/pages/Problems';
 
 export default function Routes() {
   return (
@@ -23,6 +24,7 @@ export default function Routes() {
       <Route path="/deliverers" isPrivate component={Deliverers} />
       <Route path="/newdeliverer" exact isPrivate component={NewDeliverer} />
       <Route path="/newdeliverer/:id" isPrivate component={NewDeliverer} />
+      <Route path="/problems" isPrivate component={Problems} />
       <Route path="/" component={() => <h1>404 - Not found!</h1>} />
     </Switch>
   );
