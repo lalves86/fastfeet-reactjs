@@ -1,10 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import { Container, Content, Profile } from './styles';
 import logo from '~/assets/fastfeet-logo.png';
+import { signOut } from '~/store/modules/auth/actions';
 
 export default function Header() {
+  const dispatch = useDispatch();
+
+  function handleSignOut() {
+    dispatch(signOut());
+  }
+
   return (
     <Container>
       <Content>
@@ -18,7 +26,9 @@ export default function Header() {
         <aside>
           <Profile>
             <strong>Distribuidora Fastfeet</strong>
-            <a href="#">Sair do sistema</a>
+            <button type="button" onClick={handleSignOut}>
+              Sair do sistema
+            </button>
           </Profile>
         </aside>
       </Content>

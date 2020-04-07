@@ -13,11 +13,9 @@ export const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   nav {
     display: flex;
     align-items: center;
-
     img {
       width: 130px;
       height: 22px;
@@ -25,21 +23,17 @@ export const Content = styled.div`
       padding-right: 20px;
       border-right: 1px solid #eee;
     }
-
     a {
       font-weight: bold;
       color: #ccc;
       padding: 0 10px;
-
       &:hover {
         color: ${darken(0.5, '#eee')};
       }
-
       &:active {
         color: #000;
       }
     }
-
     aside {
       display: flex;
       align-items: center;
@@ -59,7 +53,10 @@ export const Profile = styled.div`
     color: #333;
   }
 
-  a {
+  button {
+    border: none;
+    background: #fff;
+    padding: 5px 0;
     display: block;
     margin-top: 2px;
     font-size: 12px;
