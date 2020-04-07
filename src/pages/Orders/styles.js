@@ -81,6 +81,7 @@ export const TableBody = styled.div`
   display: flex;
   justify-content: space-between;
   border-radius: 4px;
+  width: 900px;
   background: #fff;
   margin-bottom: 15px;
   z-index: 1;
